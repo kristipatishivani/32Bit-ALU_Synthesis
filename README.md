@@ -58,6 +58,29 @@ endcase
 end
 endmodule
 ```
+# run.tcl
+```
+read_libs /cadence/install/FOUNDRY-01/digital/90nm/dig/lib/slow.lib
+read_hdl alu_32bit.v
+elaborate
+ 
+syn_generic
+report_area
+syn_map
+report_area
+syn_opt
+report_area 
+
+report_area > alu_32bit_area.txt
+report_power > alu_32bit_power.txt
+report_area > alu_32bit_cell.txt
+report_gates > alu_32bit_gates.txt
+
+write_hdl > alu_32bit_netlist.v
+
+gui_show
+```
+
 # Synthesis RTL Schematic :
 ![WhatsApp Image 2024-11-18 at 13 15 36_a57ac305](https://github.com/user-attachments/assets/f11819f0-7e9b-496f-b87b-caeed696fec6)
 # Area report:
